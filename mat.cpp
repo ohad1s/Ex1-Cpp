@@ -9,13 +9,14 @@
 using namespace std;
 //using namespace ariel;
 
-string ariel::mat(int r, int c, char c1, char c2) {
+string ariel::mat(int c, int r, char c1, char c2) {
     if (r <= 0 || c <= 0) {
-        throw "zero or negative input error ";
+        throw invalid_argument("zero or negative input error ");
     }
-//    if (r % 2 == 0 || c % 2 == 0) {
-//        throw "Mat size is always odd";
-//    }
+    if (r % 2 == 0 || c % 2 == 0) {
+//        std::cout<<"Mat size is always odd"<<endl;
+        throw invalid_argument("Mat size is always odd");
+    }
     char **my_mat = new char *[r];
     for (int i = 0; i < r; i++) {
         my_mat[i] = new char[c];
@@ -67,7 +68,7 @@ string ariel::mat(int r, int c, char c1, char c2) {
 
 //int main() {
 //
-//    std::cout << ariel::mat(11, 7, '1', '0') << endl;
+//    std::cout << ariel::mat(9, 7, '@', '-') << endl;
 //
 //    return 0;
 //}
