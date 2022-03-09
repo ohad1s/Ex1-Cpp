@@ -14,8 +14,16 @@ string ariel::mat(int c, int r, char c1, char c2) {
         throw invalid_argument("zero or negative input error ");
     }
     if (r % 2 == 0 || c % 2 == 0) {
-//        std::cout<<"Mat size is always odd"<<endl;
         throw invalid_argument("Mat size is always odd");
+    }
+    if (c1 == '\n' || c2  == '\n') {
+        throw invalid_argument("enter can not be a valid char");
+    }
+    if (c1 == '\t' || c2  == '\t') {
+        throw invalid_argument("tab can not be a valid char");
+    }
+    if (c1 == ' ' || c2  == ' ') {
+        throw invalid_argument("space can not be a valid char");
     }
     char **my_mat = new char *[r];
     for (int i = 0; i < r; i++) {

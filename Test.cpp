@@ -31,6 +31,14 @@ TEST_CASE("Bad input with negative numbers") {
     CHECK_THROWS(mat(7, -8, '%', '#'));
 }
 
+TEST_CASE("Bad input with special chars") {
+    CHECK_THROWS(mat(-3, 5, ' ', '%'));
+    CHECK_THROWS(mat(7, -1, '&', '\n'));
+    CHECK_THROWS(mat(-3, -5, '\t', '^'));
+    CHECK_THROWS(mat(-5, 0, '\t', '\n'));
+    CHECK_THROWS(mat(7, -8, ' ', ' '));
+}
+
 TEST_CASE("Good input") {
     CHECK(mat(9, 7, '@', '-') == "@@@@@@@@@\n@-------@\n@-@@@@@-@\n@-@---@-@\n@-@@@@@-@\n@-------@\n@@@@@@@@@");
     CHECK(mat(11, 9, '*', '!') == "***********\n"
